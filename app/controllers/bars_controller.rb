@@ -1,7 +1,4 @@
 class BarsController < ApplicationController
-  def home
-  end
-
   def show
   end
 

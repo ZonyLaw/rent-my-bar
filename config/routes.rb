@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "bars#home"
+  root to: "pages#home"
   resources :bars do
     resources :bookings, only: [:new, :create]
   end
