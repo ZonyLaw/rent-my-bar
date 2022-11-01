@@ -5,13 +5,18 @@
 
       <%@bars.each do |bar|%>
         <div class="bar-index-card">
-          <%= image_tag 'bar1', class: 'image-list-cover',  alt: "Bar 1 layout" %>
+          <%= image_tag 'bar2', class: 'image-list-cover',  alt: "Bar 1 layout" %>
 
           <div class="bar-card-content">
-            <p><%=bar.name%></p>
-            <p>£<%=bar.price%></p>
-          </div>
+            <div>
+              <h3><%=bar.name%></h3>
+              <p><%=bar.address%></p>
+            </div>
 
+            <div>
+              <h3>£<%=bar.price%></h3>
+            </div>
+          </div>
         </div>
       <%end%>
   </div>
