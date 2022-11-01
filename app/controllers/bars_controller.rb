@@ -2,6 +2,10 @@ class BarsController < ApplicationController
   def home
   end
 
+  def index
+    @bars = Bar.all
+  end
+
   def show
   end
 

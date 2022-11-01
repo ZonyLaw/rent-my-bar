@@ -5,3 +5,22 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+require 'faker'
+
+puts "Cleaning database"
+Bar.destroy_all
+
+puts "Adding a bar"
+5.times do
+  bar =Bar.new(
+  name: Faker::Restaurant.name,
+  address: Faker::Address.street_address,
+  description: "",
+  price: [100, 150,250,300,350,400].sample,
+  user: User.find(1))
+  bar.save!
+
+  puts "Bar #{bar.name} created"
+end
+puts "Populated bar database"
