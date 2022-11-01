@@ -8,17 +8,29 @@
 
 require 'faker'
 
-puts "Cleaning database"
+puts "Clean user database"
+puts "Add a list of users"
+5.times do
+  user =User.new(
+  name: Faker::Name.name,
+  email: Faker::Internet.email)
+  user.save!
+
+    puts "User #{user.name} created"
+end
+puts "Populated bar database"
+
+puts "Clean bar database"
 Bar.destroy_all
 
-puts "Adding a bar"
+puts "Add a list of bars"
 5.times do
   bar =Bar.new(
   name: Faker::Restaurant.name,
   address: Faker::Address.street_address,
   description: "",
   price: [100, 150,250,300,350,400].sample,
-  user: User.find(1))
+  user: User.find(rand(1..5)))
   bar.save!
 
   puts "Bar #{bar.name} created"
