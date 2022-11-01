@@ -11,7 +11,7 @@ class BarsController < ApplicationController
 
   def create
     @bar = Bar.new(bar_params)
-  @bar.save
+  @bar.save!
   # redirect_to bar_path(@bar)
   end
 
@@ -27,6 +27,6 @@ class BarsController < ApplicationController
   private
 
   def bar_params
-    params.require(:bar).permit(:name, :address, :description, :price, :user)
+    params.require(:bar).permit(:name, :address, :description, :price, :user_id)
   end
 end
