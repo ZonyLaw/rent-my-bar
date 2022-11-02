@@ -7,6 +7,7 @@ class BarsController < ApplicationController
   end
 
   def show
+    @bar = Bar.find(params[:id])
   end
 
   def new
