@@ -14,7 +14,7 @@ class BarsController < ApplicationController
 
   def create
     @bar = Bar.new(bar_params)
-  @bar.save!
+    @bar.save!
   # redirect_to bar_path(@bar)
   end
 
