@@ -1,6 +1,6 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
   <div class="container">
-    <h1>Rent your bar brings <strong>drinking skills</strong> to <strong>thirsty people</strong>!</h1>
+    <h1>Rent-my-bar brings <strong>drinking skills</strong> to <strong>thirsty people</strong>!</h1>
     <p>Change your life and rent a bar at one of our listed bars around the world.</p>
 
     <%= simple_form_for :search, url: bars_path, method: :get do |f| %>
@@ -11,8 +11,28 @@
         </button>
       </div>
     <% end %>
-
-
-
   </div>
+</div>
+
+<div class="container">
+  <div class="list-index-card-wrapper">
+
+      <%@bars.each do |bar|%>
+        <div class="bar-index-card">
+          <%= image_tag 'bar2', class: 'image-list-cover',  alt: "Bar 1 layout" %>
+
+          <div class="bar-card-content">
+            <div>
+              <h3><%=bar.name%></h3>
+              <p><%=bar.address%></p>
+            </div>
+
+            <div>
+              <h3>£<%=bar.price%></h3>
+            </div>
+          </div>
+        </div>
+      <%end%>
+  </div>
+
 </div>
