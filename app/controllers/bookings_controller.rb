@@ -8,6 +8,8 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new (booking_params)
     @booking.bar = @bar
+    @booking.user = @bar.user
+    # raise
 
     if @booking.save
       redirect_to bar_path(@bar)
