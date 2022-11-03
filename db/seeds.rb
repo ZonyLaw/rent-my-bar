@@ -19,7 +19,7 @@ puts "Add a list of users"
     email: Faker::Internet.email)
   user.save!
 
-    puts "User #{user.name} created"
+  puts "User #{user.name} created"
 end
 puts "Populated user database"
 
