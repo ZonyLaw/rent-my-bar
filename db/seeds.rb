@@ -8,20 +8,20 @@
 
 require 'faker'
 
-# puts "Clean user database"
+ puts "Clean user database"
 
-# User.destroy_all
+ User.destroy_all
 
-# puts "Add a list of users"
-# 5.times do
-#   user = User.new(
-#     name: Faker::Name.name,
-#     email: Faker::Internet.email)
-#   user.save!
+ puts "Add a list of users"
+ 5.times do
+   user = User.new(
+     name: Faker::Name.name,
+     email: Faker::Internet.email)
+   user.save!
 
-#     puts "User #{user.name} created"
-# end
-# puts "Populated user database"
+     puts "User #{user.name} created"
+ end
+ puts "Populated user database"
 
 puts "Clean bar database"
 Bar.destroy_all
