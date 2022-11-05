@@ -4,3 +4,6 @@ import "./controllers"
 import "bootstrap"
 
 import { application } from "./application"
+
+import NavbarController from "./controllers/navbar_controller.js"
+application.register("navbar", NavbarController)

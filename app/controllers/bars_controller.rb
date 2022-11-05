@@ -1,7 +1,11 @@
 class BarsController < ApplicationController
 
   def index
-    @bars = Bar.all
+    if params[:search].present?
+      @bars = Bar.where("name ILIKE ? OR address ILIKE ? ", "%#{params[:search][:query]}%", "%#{params[:search][:query]}%")
+    else
+      @bars = Bar.all
+    end
   end
 
   def show

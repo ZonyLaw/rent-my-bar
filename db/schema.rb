@@ -25,6 +25,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_03_191601) do
     t.index ["user_id"], name: "index_bars_on_user_id"
   end
 
+  create_table "bookings", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.bigint "user_id", null: false
+    t.bigint "bar_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bar_id"], name: "index_bookings_on_bar_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -39,4 +50,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_03_191601) do
   end
 
   add_foreign_key "bars", "users"
+  add_foreign_key "bookings", "bars"
+  add_foreign_key "bookings", "users"
 end

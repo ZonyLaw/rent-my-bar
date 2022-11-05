@@ -19,15 +19,15 @@ require 'faker'
      email: Faker::Internet.email)
    user.save!
 
-     puts "User #{user.name} created"
- end
- puts "Populated user database"
+  puts "User #{user.name} created"
+end
+puts "Populated user database"
 
 puts "Clean bar database"
 Bar.destroy_all
 
 puts "Add a list of bars"
-5.times do
+20.times do
   bar = Bar.new(
     name: Faker::Restaurant.name,
     address: Faker::Address.street_address,
