@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     # raise
 
     if @booking.save
-      flash[:notice] = 'Successfully booking!'
+      flash[:notice] = 'Booking is successful!'
       redirect_to bar_path(@bar)
 
 
