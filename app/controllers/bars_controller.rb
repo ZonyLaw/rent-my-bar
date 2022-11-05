@@ -18,8 +18,14 @@ class BarsController < ApplicationController
 
   def create
     @bar = Bar.new(bar_params)
-    @bar.save!
-  # redirect_to bar_path(@bar)
+    if @bar.save!
+      redirect_to bar_path(@bar), flash: {notice: "Successfully!"}
+      flash.now[:notice] = 'Successfully booking!'
+    else
+      render :new, status: :unprocessable_entity
+    end
+
+
   end
 
   def update
