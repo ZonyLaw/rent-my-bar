@@ -2,6 +2,8 @@
   <h1>Welcome to <%=@bar.name%></h1>
   <p><%=@bar.address%></p>
 
+  <p class="notice"><%= notice %></p>
+
   <%=link_to "Home", root_path %> |
   <%=link_to "Back to List", bars_path(@bar) %> |
   <%=link_to "Book Venue", new_bar_booking_path(@bar) %>
