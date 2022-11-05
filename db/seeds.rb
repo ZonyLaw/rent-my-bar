@@ -32,7 +32,8 @@ puts "Add a list of bars"
   bar = Bar.new(
     name: Faker::Restaurant.name,
     address: Faker::Address.street_address,
-    description: "",
+    description: "Beer selection: #{rand(5..30)}, Amenities: #{rand(20..50)} tables, #{rand(0..3)} pool table, #{rand(0..3)} darts,
+      Food: #{['French', 'Italian', 'English', 'Turkish', 'American'].sample}",
     price: [100, 150,250,300,350,400].sample,
     user: User.all.sample)
   bar.save!
