@@ -1,10 +1,12 @@
-<div class="container">
-  <h1>Welcome to <%=@bar.name%></h1>
+<div class="container bar-content">
+  <h1 class="booking-confirm"><%= notice %></h1>
 
+  <h1>Welcome to <%=@bar.name%></h1>
   <%= image_tag 'bar2', class: 'image-list-cover',  alt: "Bar 1 layout" %>
   <p><%=@bar.address%></p>
+  <h2>Bar details</h2>
+  <p><%= @bar.description %></p>
 
-  <h3 class="notice"><%= notice %></h3>
 
   <%=link_to "Home", root_path %> |
   <%=link_to "Back to List", bars_path(@bar) %> |
