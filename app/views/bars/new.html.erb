@@ -1,10 +1,12 @@
-<h1>Bars#new</h1>
-<p>Find me in app/views/bars/new.html.erb</p>
-<%= simple_form_for @bar do |f|%>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :address %>
-  <%= f.input :price %>
-  <%= f.association :user %>
-  <%= f.submit class: "btn btn-primary" %>
-<%end%>
+<div class="container">
+  <h1>List your bar!</h1>
+  <br>
+  <%= simple_form_for @bar do |f|%>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :address %>
+    <%= f.input :price %>
+    <%= f.association :user %>
+    <%= f.submit class: "btn btn-primary" %>
+  <%end%>
+</div>
