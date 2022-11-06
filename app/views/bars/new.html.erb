@@ -1,11 +1,5 @@
 <div class="container">
   <h1>List your bar!</h1>
   <br>
-  <%= simple_form_for @bar do |f|%>
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :address %>
-    <%= f.input :price %>
-    <%= f.submit class: "btn btn-primary" %>
-  <%end%>
+  <%= render "form", bar: @bar %>
 </div>
