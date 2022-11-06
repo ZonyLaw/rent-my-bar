@@ -6,6 +6,13 @@ class BarsController < ApplicationController
     else
       @bars = Bar.all
     end
+
+    @markers = @bars.geocoded.map do |bar|
+      {
+        lat: bar.latitude,
+        lng: bar.longitude
+      }
+    end
   end
 
   def show
