@@ -18,9 +18,9 @@ class BarsController < ApplicationController
 
   def create
     @bar = Bar.new(bar_params)
-    # refer to user
+    @bar.user = current_user
     @bar.save!
-    # redirect_to bar_path(@bar)
+    redirect_to bar_path(@bar)
   end
 
   def update

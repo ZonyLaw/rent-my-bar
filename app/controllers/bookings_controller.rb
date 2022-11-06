@@ -12,7 +12,10 @@ class BookingsController < ApplicationController
     # raise
 
     if @booking.save
+      flash[:notice] = 'Booking is successful!'
       redirect_to bar_path(@bar)
+
+
     else
       render :new, status: :unprocessable_entity
     end
