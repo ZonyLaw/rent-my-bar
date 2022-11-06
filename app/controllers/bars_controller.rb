@@ -18,13 +18,9 @@ class BarsController < ApplicationController
 
   def create
     @bar = Bar.new(bar_params)
-    if @bar.save!
-      redirect_to bar_path(@bar)
-    else
-      render :new, status: :unprocessable_entity
-    end
-
-
+    @bar.user = current_user
+    @bar.save!
+    redirect_to bar_path(@bar)
   end
 
   def update
