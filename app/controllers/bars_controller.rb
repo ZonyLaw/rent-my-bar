@@ -20,7 +20,7 @@ class BarsController < ApplicationController
     @bar = Bar.new(bar_params)
     @bar.user = current_user
     @bar.save!
-  # redirect_to bar_path(@bar)
+    redirect_to bar_path(@bar)
   end
 
   def update
