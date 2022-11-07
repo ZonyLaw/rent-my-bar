@@ -19,16 +19,18 @@
 
       <%@bars.each do |bar|%>
         <div class="bar-index-card">
-          <%= image_tag 'bar2', class: 'image-list-cover',  alt: "Bar 1 layout" %>
+          <%=link_to bar_path(bar) do %>
+            <%= image_tag 'bar2', class: 'image-list-cover',  alt: "Bar 1 layout" %>
+          <%end%>
 
           <div class="bar-card-content">
             <div>
-              <h3><%=bar.name%></h3>
+              <h4><%=bar.name%></h4>
               <p><%=bar.address%></p>
             </div>
 
             <div>
-              <h3>£<%=bar.price%></h3>
+              <p><span class="bold">£<%=bar.price%></span>/day</p>
             </div>
           </div>
         </div>
