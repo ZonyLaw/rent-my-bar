@@ -3,7 +3,7 @@ import "@hotwired/turbo-rails"
 import "./controllers"
 import "bootstrap"
 
-import { application } from "./application"
+import { application } from "./controllers/application.js"
 
 import NavbarController from "./controllers/navbar_controller.js"
 application.register("navbar", NavbarController)

@@ -7,12 +7,18 @@ class BarsController < ApplicationController
       @bars = Bar.all
     end
 
+    @markers = @bars.geocoded.map do |bar|
+      {
+        lat: bar.latitude,
+        lng: bar.longitude
+        # info_window: render_to_string(partial: "info_window", locals: {bar: bar})
+      }
+    end
 
   end
 
   def show
     @bar = Bar.find(params[:id])
-    @markers = [{ lat: @bar.latitude, lng: @bar.longitude }]
   end
 
   def new

@@ -1,7 +1,7 @@
 <h1>Rent my bar</h1>
 
 <div class="container">
-  <div class="list-index-card-wrapper">
+<div class="list-index-card-wrapper">
 
       <%@bars.each do |bar|%>
         <div class="bar-index-card">
@@ -15,11 +15,16 @@
             </div>
 
             <div>
-              <h3>£<%=bar.price%></h3>
+              <h5>£<%=bar.price%><span class="small">/day</span></h5>
             </div>
           </div>
         </div>
       <%end%>
   </div>
+
+  <div id='map' style="width: 100%; height: 300px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 </div>
