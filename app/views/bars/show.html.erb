@@ -1,22 +1,57 @@
 <div class="container bar-content">
   <h1 class="booking-confirm"><%= notice %></h1>
-  <h1>Welcome to <%= @bar.name %></h1>
+  <h1 class="position-absolute top-0 start-50 translate-middle">Welcome to <%= @bar.name %></h1>
 
-  <% @bar.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
+
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <% @bar.photos.first(3).each_with_index do |photo, index| %>
+        <% if index == 0 %>
+          <div class="carousel-item active">
+            <%= cl_image_tag photo.key, class: 'img-bar', height: 300, width: 400, crop: :fill, alt: 'image bar' %>
+          </div>
+        <% else %>
+          <div class="carousel-item">
+            <%= cl_image_tag photo.key, class: 'img-bar', height: 300, width: 400, crop: :fill, alt: 'image bar' %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+
   <p><%=@bar.address%></p>
   <h2>Bar details</h2>
   <p><%= @bar.description %></p>
+
+
+
+
 
   <%= link_to "Home", root_path %> |
   <%= link_to "Back to List", bars_path %> |
   <%= link_to "Book Venue", new_bar_booking_path(@bar) %> |
   <%= link_to "Delete", bar_path(@bar), data: {"turbo_method": :delete, turbo_confirm: "Are you sure?"} %>
 
- <div id='map' style="width: 100%; height: 300px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
- </div>
+
+
+  <div id='map' style="width: 100%; height: 300px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
