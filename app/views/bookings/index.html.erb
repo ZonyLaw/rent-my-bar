@@ -1,7 +1,33 @@
-<h1>User Account</h1>
+<h1>Booking summary</h1>
 
 <div class="container">
-  <%@bookings.each do |booking|%>
-    <%=booking.users.%>
-  <%end%>
+
+  <div class="list-index-card-wrapper">
+    <%@bookings.each do |booking|%>
+      <div class="booking-card booking-content-row">
+        <% days = (booking.end_date - booking.start_date).to_i + 1%>
+        <% cost = booking.bar.price * days %>
+
+        <div>
+          <% if booking.bar.photos.attached? %>
+            <% booking.bar.photos.each_with_index do |photo, index| %>
+              <div <%= index == 0 ? "active" : "" %> >
+                <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: 'image-bar-cover d-block', alt: "image cover for bar" %>
+              </div>
+            <% end %>
+          <% else %>
+            <%= image_tag "https://images.unsplash.com/photo-1525268323446-0505b6fe7778?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80" %>
+          <% end %>
+        </div>
+
+        <div class=booking-content-text>
+          <h3><%=booking.bar.name%> </h3>
+          <p><%=booking.bar.address%></p>
+          <p> <strong>From:</strong> <%=booking.start_date.strftime('%m %B %Y')%>
+          <strong> To:</strong> <%=booking.end_date.strftime('%m %B %Y')%></p>
+          <p>Cost: £<%=cost%></p>
+        </div>
+      </div>
+    <%end%>
+  </div>
 </div>
