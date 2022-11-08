@@ -1,6 +1,10 @@
 class BookingsController < ApplicationController
   before_action :set_bar, only: [:new, :create]
 
+  def index
+    @bookings = Booking.where(user: current_user)
+  end
+
   def new
     @booking = Booking.new
   end
@@ -8,7 +12,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.bar = @bar
-    @booking.user = @bar.user
+    @booking.user = current_user
 
     if @booking.save
 
