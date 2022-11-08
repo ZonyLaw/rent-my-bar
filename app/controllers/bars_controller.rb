@@ -37,6 +37,9 @@ class BarsController < ApplicationController
   end
 
   def delete
+    @bar = Bar.find(params[:id])
+    @bar.destroy
+    redirect_to bars_path, status: :see_other
   end
 
   def edit
@@ -45,6 +48,6 @@ class BarsController < ApplicationController
   private
 
   def bar_params
-    params.require(:bar).permit(:name, :address, :description, :price, :user_id)
+    params.require(:bar).permit(:name, :address, :description, :price, :user_id, photos: [])
   end
 end
