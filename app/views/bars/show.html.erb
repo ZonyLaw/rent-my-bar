@@ -1,12 +1,13 @@
-<div class="container">
+<div class="container bar-content">
+  <h1 class="booking-confirm"><%= notice %></h1>
   <h1>Welcome to <%= @bar.address %>'s <%= @bar.name %></h1>
 
   <% @bar.photos.each do |photo| %>
     <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
   <% end %>
   <p><%=@bar.address%></p>
+  <h2>Bar details</h2>
   <p><%= @bar.description %></p>
-  <h3 class="notice"><%= notice %></h3>
 
   <%=link_to "Home", root_path %> |
   <%=link_to "Back to List", bars_path(@bar) %> |
@@ -16,7 +17,8 @@
  <div id='map' style="width: 100%; height: 300px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
  </div>
+</div>
 
 
