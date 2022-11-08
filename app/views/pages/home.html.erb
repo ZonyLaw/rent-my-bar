@@ -1,16 +1,22 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+<% image = 'banner_homepage_fqvg8o' %>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path image %>')" %>>
   <div class="container">
-    <h1>Rent-my-bar brings <strong>drinking skills</strong> to <strong>thirsty people</strong>!</h1>
-    <p>Change your life and rent a bar at one of our listed bars around the world.</p>
+    <h1>Rent-my-bar brings <strong>awesome venues</strong> to <strong>thirsty people</strong>!</h1>
+    <p>Rent a bar and celebrate at one of our listed bars around the world.</p>
 
     <%= simple_form_for :search, url: bars_path, method: :get do |f| %>
       <div class="search-form-control form-group">
-        <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+        <input class="form-control string required" placeholder="Search a bar by name or address" type="text" name="search[query]" id="search_query" />
         <button name="button" type="submit" class="btn btn-flat">
           <i class="fas fa-search"></i> Search
         </button>
       </div>
     <% end %>
+    <div class="btn-actions">
+      <%= link_to "List a new bar", new_bar_path, class: "btn btn-success" %>
+      <%= link_to "Access your listed bars", new_bar_path, class: "btn btn-info" %>
+    </div>
   </div>
 </div>
 
@@ -18,22 +24,22 @@
   <div class="list-index-card-wrapper">
 
       <%@bars.each do |bar|%>
-        <div class="bar-index-card">
-          <%=link_to bar_path(bar) do %>
+        <%= link_to bar_path(bar) do %>
+          <div class="bar-index-card">
             <%= image_tag 'bar2', class: 'image-list-cover',  alt: "Bar 1 layout" %>
-          <%end%>
 
-          <div class="bar-card-content">
-            <div>
-              <h4><%=bar.name%></h4>
-              <p><%=bar.address%></p>
-            </div>
+            <div class="bar-card-content">
+              <div>
+                <h3><%=bar.name%></h3>
+                <p><%=bar.address%></p>
+              </div>
 
-            <div>
-              <p><span class="bold">£<%=bar.price%></span>/day</p>
+              <div>
+                <p><span class="bold">£<%=bar.price%></span>/day</p>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <%end%>
   </div>
 

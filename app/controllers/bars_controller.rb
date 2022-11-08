@@ -6,10 +6,20 @@ class BarsController < ApplicationController
     else
       @bars = Bar.all
     end
+
+    @markers = @bars.geocoded.map do |bar|
+      {
+        lat: bar.latitude,
+        lng: bar.longitude
+        # info_window: render_to_string(partial: "info_window", locals: {bar: bar})
+      }
+    end
+
   end
 
   def show
     @bar = Bar.find(params[:id])
+    @markers = [{lat: @bar.latitude, lng: @bar.longitude}]
   end
 
   def new
@@ -18,19 +28,18 @@ class BarsController < ApplicationController
 
   def create
     @bar = Bar.new(bar_params)
-    if @bar.save!
-      redirect_to bar_path(@bar)
-    else
-      render :new, status: :unprocessable_entity
-    end
-
-
+    @bar.user = current_user
+    @bar.save!
+    redirect_to bar_path(@bar)
   end
 
   def update
   end
 
   def delete
+    @bar = Bar.find(params[:id])
+    @bar.destroy
+    redirect_to bars_path, status: :see_other
   end
 
   def edit
@@ -39,6 +48,6 @@ class BarsController < ApplicationController
   private
 
   def bar_params
-    params.require(:bar).permit(:name, :address, :description, :price, :user_id)
+    params.require(:bar).permit(:name, :address, :description, :price, :user_id, photos: [])
   end
 end
