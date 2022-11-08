@@ -1,9 +1,12 @@
 // Specific CSS for your home-page
 
 .banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
 
   h1 {
     margin: 0;
@@ -42,4 +45,11 @@
   border: 1px solid #1EDD88;
   outline: none !important;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.btn-actions {
+  margin-top: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
