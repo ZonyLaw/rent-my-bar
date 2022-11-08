@@ -1,6 +1,6 @@
 <div class="container bar-content">
   <h1 class="booking-confirm"><%= notice %></h1>
-  <h1>Welcome to <%= @bar.address %>'s <%= @bar.name %></h1>
+  <h1>Welcome to <%= @bar.name %></h1>
 
   <% @bar.photos.each do |photo| %>
     <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
@@ -9,10 +9,10 @@
   <h2>Bar details</h2>
   <p><%= @bar.description %></p>
 
-  <%=link_to "Home", root_path %> |
-  <%=link_to "Back to List", bars_path(@bar) %> |
-  <%=link_to "Book Venue", new_bar_booking_path(@bar) %> |
-  <%= link_to "Delete", bars_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  <%= link_to "Home", root_path %> |
+  <%= link_to "Back to List", bars_path %> |
+  <%= link_to "Book Venue", new_bar_booking_path(@bar) %> |
+  <%= link_to "Delete", bar_path(@bar), data: {"turbo_method": :delete, turbo_confirm: "Are you sure?"} %>
 
  <div id='map' style="width: 100%; height: 300px;"
     data-controller="map"
@@ -20,5 +20,3 @@
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
  </div>
 </div>
-
-
