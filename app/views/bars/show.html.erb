@@ -1,67 +1,65 @@
-<div class="wrapper">
+<div class="container">
   <div>
     <h1 class="title"><%= @bar.name %></h1>
   </div>
-  <div class="container">
-    <h2 class="booking-confirm"><%= notice %></h2>
+  <h2 class="booking-confirm"><%= notice %></h2>
 
-    <div class="bar-content">
-      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-          <% @bar.photos.first(3).each_with_index do |photo, index| %>
-            <% if index == 0 %>
-              <div class="carousel-item active">
-                <%= cl_image_tag photo.key, class: 'd-block w-100', alt: 'image bar' %>
-              </div>
-            <% else %>
-              <div class="carousel-item">
-                <%= cl_image_tag photo.key, class: 'd-block w-100', alt: 'image bar' %>
-              </div>
-            <% end %>
+  <div class="bar-content">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner", style="height: 400px;">
+        <% @bar.photos.first(3).each_with_index do |photo, index| %>
+          <% if index == 0 %>
+            <div class="carousel-item active h-100">
+              <%= cl_image_tag photo.key, class: 'd-block w-100 h-100', alt: 'image bar' %>
+            </div>
+          <% else %>
+            <div class="carousel-item h-100">
+              <%= cl_image_tag photo.key, class: 'd-block w-100 h-100', alt: 'image bar' %>
+            </div>
           <% end %>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-
-      <div class="description">
-        <div class="description-content">
-          <p><%= @bar.description %></p>
-        </div>
-          <div class="address">
-            <p>Address: <%=@bar.address%></p>
-          </div>
-        <%= link_to "Book Venue", new_bar_booking_path(@bar), class: 'btn btn-success' %>
-      </div>
-    </div>
-
-      <div class="delete-button">
-        <% if @bar.user = current_user %>
-          <%= link_to "Delete", bar_path(@bar), class: 'btn btn-danger', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
         <% end %>
       </div>
-
-
-    <div>
-      <%= link_to "Home", root_path %> |
-      <%= link_to "Back to List", bars_path(@bar) %>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
 
-    <div id='map' style="width: 100%; height: 300px;"
-        data-controller="map"
-        data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    <div class="description">
+      <div class="description-content">
+        <p><%= @bar.description %></p>
+      </div>
+        <div class="address">
+          <p>Address: <%=@bar.address%></p>
+        </div>
+      <%= link_to "Book Venue", new_bar_booking_path(@bar), class: 'btn btn-success' %>
     </div>
+  </div>
+
+    <div class="delete-button">
+      <% if @bar.user = current_user %>
+        <%= link_to "Delete", bar_path(@bar), class: 'btn btn-danger', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      <% end %>
+    </div>
+
+
+  <div>
+    <%= link_to "Home", root_path %> |
+    <%= link_to "Back to List", bars_path(@bar) %>
+  </div>
+
+  <div id='map' style="width: 100%; height: 300px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
