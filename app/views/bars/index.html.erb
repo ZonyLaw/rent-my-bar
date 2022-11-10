@@ -21,6 +21,7 @@
     <% @bars.each do |bar|%>
       <%= link_to bar_path(bar) do %>
         <div class="bar-index-card">
+
           <div class="card-header">
             <div class="header-img">
                 <% if bar.photos.attached? %>
@@ -44,11 +45,12 @@
             <p class="price"><span>£<%=bar.price%></span>/day</p>
           </div>
         </div>
-      <% end %>
     <%end%>
   </div>
 
+
 <%# Things concerning the map %>
+
   <div id='map' style="width: 100%; height: 300px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
