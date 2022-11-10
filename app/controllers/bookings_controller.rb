@@ -36,7 +36,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @bar = Bar.find(@booking.bar_id)
     @booking.update(booking_params)
-    redirect_to bar_path(@bar)
+    redirect_to bookings_path
   end
 
   private
