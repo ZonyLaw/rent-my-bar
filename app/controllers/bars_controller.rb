@@ -33,7 +33,14 @@ class BarsController < ApplicationController
     redirect_to bar_path(@bar)
   end
 
+  def edit
+    @bar = Bar.where(user: current_user)
+  end
+
   def update
+    @bar = Bar.find(params[:id])
+    @bar.update(bar_params)
+    redirect_to bar_path(@bar)
   end
 
   def destroy
@@ -43,8 +50,6 @@ class BarsController < ApplicationController
     redirect_to bars_path, status: :see_other
   end
 
-  def edit
-  end
 
   private
 
