@@ -1,10 +1,56 @@
-.bar-content {
+.wrapper {
+  margin-top: 41px;
+}
 
-  align-content: center;
+.title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  margin-top: 70px;
+}
+
+.carousel {
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 48%;
+
+  .carousel-inner {
+    border-radius: 5px;
+  }
+}
+
+.description {
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #e3e3e3;
+  width: 48%;
+  min-height: 300px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: stretch;
+
+  .description-content {
+    height: 80%;
+  }
+}
+
+.bar-content {
+  display: flex;
+  justify-content: space-between;
+
 
   h1 {
     margin-top: 100px;
   }
+}
+
+.delete-button {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .booking-confirm {

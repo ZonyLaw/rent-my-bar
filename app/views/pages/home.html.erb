@@ -1,7 +1,9 @@
 <% image = 'banner_homepage_ljjlha' %>
 
 
+
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://res.cloudinary.com/dh6gdchfj/image/upload/v1606940861/dishoom-cg_ggahzz.jpg')">
+
 
   <div class="container">
     <h1>Rent-my-bar brings <strong>awesome venues</strong> to <strong>thirsty people</strong>!</h1>
@@ -17,7 +19,7 @@
     <% end %>
     <div class="btn-actions">
       <%= link_to "List a new bar", new_bar_path, class: "btn btn-success" %>
-      <%= link_to "Access your listed bars", new_bar_path, class: "btn btn-info" %>
+      <%= link_to "Access your listed bars", bookings_path, class: "btn btn-info" %>
     </div>
   </div>
 </div>
