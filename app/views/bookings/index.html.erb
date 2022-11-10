@@ -73,7 +73,10 @@
 
         <div class="links">
           <%=link_to "Update", edit_bar_path(bar), class: "link_text" %> &emsp;
-          <%=link_to "Details", bar_path(bar), class: "link_text"%>
+          <%=link_to "Details", bar_path(bar), class: "link_text"%> &emsp;
+          <%=link_to bar_path(bar), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "link_text" do%>
+            <i class="fa-regular fa-trash-can"></i>
+          <% end %>
         </div>
 
       </div>
