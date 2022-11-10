@@ -8,6 +8,7 @@
         <% days = (booking.end_date - booking.start_date).to_i + 1%>
         <% cost = booking.bar.price * days %>
 
+<div class="booking-content-text">
         <div>
           <% if booking.bar.photos.attached? %>
             <% booking.bar.photos.each_with_index do |photo, index| %>
@@ -20,18 +21,23 @@
           <% end %>
         </div>
 
-        <div class=booking-content-text>
-          <h3><%=booking.bar.name%> </h3>
-          <p><%=booking.bar.address%></p>
-          <div class="detail-indent">
-            <p class="lg"> <strong><u>Booking details: </u></strong></p>
-            <p> <strong>From:</strong> <%=booking.start_date.strftime('%d %B %Y')%>
-            <strong> To:</strong> <%=booking.end_date.strftime('%d %B %Y')%></p>
-            <p>Cost: £<%=cost%></p>
+        <div class="booking-content-text">
+          <div>
+            <h3><%=booking.bar.name%> </h3>
+            <p><%=booking.bar.address%></p>
+            <div class="detail-indent">
+              <p> <strong><u>Booking details: </u></strong></p>
+              <p> <strong>From:</strong> <%=booking.start_date.strftime('%d %B %Y')%>
+              <strong> To:</strong> <%=booking.end_date.strftime('%d %B %Y')%></p>
+              <p>Cost: £<%=cost%> for <%= days %> <%= days === 1 ? "day" : "days" %></p>
+            </div>
           </div>
         </div>
-          <%=link_to "Update", edit_bar_booking_path(booking.bar, booking) %> |
-          <%=link_to "Bar details", bar_path(booking.bar) %>
+</div>
+        <div class="links">
+          <%=link_to "Update", edit_bar_booking_path(booking.bar, booking), class: "link_text" %> &emsp;
+          <%=link_to "Details", bar_path(booking.bar), class: "link_text"%>
+        </div>
       </div>
     <%end%>
   </div>
