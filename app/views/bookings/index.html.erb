@@ -36,7 +36,10 @@
         </div>
         <div class="links">
           <%=link_to "Update", edit_bar_booking_path(booking.bar, booking), class: "link_text" %> &emsp;
-          <%=link_to "Details", bar_path(booking.bar), class: "link_text"%>
+          <%=link_to "Details", bar_path(booking.bar), class: "link_text"%> &emsp;
+          <%=link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "link_text" do%>
+            <i class="fa-regular fa-trash-can"></i>
+          <% end %>
         </div>
       </div>
     <%end%>

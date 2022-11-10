@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :bars do
     resources :bookings, only: [:new, :create, :edit, :update]
   end
-    resources :bookings, only: [:index,  :delete]
+    resources :bookings, only: [:index, :destroy]
 end
