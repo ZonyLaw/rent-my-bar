@@ -34,7 +34,7 @@ class BarsController < ApplicationController
   end
 
   def edit
-    @bar = Bar.where(user: current_user)
+    @bar = Bar.find(params[:id])
   end
 
   def update
