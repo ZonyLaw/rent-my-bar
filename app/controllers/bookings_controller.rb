@@ -22,10 +22,21 @@ class BookingsController < ApplicationController
 
       flash[:notice] = "Thank you for your booking. The cost for #{days} #{days === 1 ? "day" : "days"} is £#{cost}."
       redirect_to bar_path(@bar)
-
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
+    @booking = Booking.find(params[:id])
+    @bar = Bar.find(@booking.bar_id)
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @bar = Bar.find(@booking.bar_id)
+    @booking.update(booking_params)
+    redirect_to bar_path(@bar)
   end
 
   private

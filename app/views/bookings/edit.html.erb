@@ -1,0 +1,10 @@
+<h1>Update Venue</h1>
+<h1>Update Venue</h1>
+<h1><%=@booking.start_date  %></h1>
+<h1><%=@bar.name  %></h1>
+
+<%= simple_form_for [@bar, @booking] do |f|%>
+  <%= f.input :start_date, as: :date, html5: true%>
+  <%= f.input :end_date, as: :date, html5: true%>
+  <%= f.submit class: "btn btn-primary" %>
+<%end%>
