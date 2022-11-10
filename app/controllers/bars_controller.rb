@@ -36,7 +36,8 @@ class BarsController < ApplicationController
   def update
   end
 
-  def delete
+  def destroy
+
     @bar = Bar.find(params[:id])
     @bar.destroy
     redirect_to bars_path, status: :see_other
