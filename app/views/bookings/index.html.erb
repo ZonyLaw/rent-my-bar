@@ -1,0 +1,88 @@
+<h1>Booking summary</h1>
+
+<div class="container">
+
+  <div class="list-index-card-wrapper">
+    <%@bookings.each do |booking|%>
+      <div class="booking-card booking-content-row">
+        <% days = (booking.end_date - booking.start_date).to_i + 1%>
+        <% cost = booking.bar.price * days %>
+
+        <div class="booking-content-text">
+          <div>
+            <% if booking.bar.photos.attached? %>
+              <% booking.bar.photos.each_with_index do |photo, index| %>
+                <div <%= index == 0 ? "active" : "" %> >
+                  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: 'image-bar-cover d-block', alt: "image cover for bar" %>
+                </div>
+              <% end %>
+            <% else %>
+              <%= image_tag "https://images.unsplash.com/photo-1525268323446-0505b6fe7778?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80" %>
+            <% end %>
+          </div>
+
+          <div class="booking-content-text">
+            <div>
+              <h3><%=booking.bar.name%> </h3>
+              <p><%=booking.bar.address%></p>
+              <div class="detail-indent">
+                <p> <strong><u>Booking details: </u></strong></p>
+                <p> <strong>From:</strong> <%=booking.start_date.strftime('%d %B %Y')%>
+                <strong> To:</strong> <%=booking.end_date.strftime('%d %B %Y')%></p>
+                <p>Cost: £<%=cost%> for <%= days %> <%= days === 1 ? "day" : "days" %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="links">
+          <%=link_to "Update", edit_bar_booking_path(booking.bar, booking), class: "link_text" %> &emsp;
+          <%=link_to "Details", bar_path(booking.bar), class: "link_text"%> &emsp;
+          <%=link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "link_text" do%>
+            <i class="fa-regular fa-trash-can"></i>
+          <% end %>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</div>
+
+
+<h1>Bars Listing</h1>
+<div class="container">
+  <div class="list-index-card-wrapper">
+    <%@bars.each do |bar|%>
+      <div class="booking-card booking-content-row">
+
+          <div class="booking-content-text">
+            <div>
+                <% if bar.photos.attached? %>
+                  <% bar.photos.each_with_index do |photo, index| %>
+                    <div <%= index == 0 ? "active" : "" %> >
+                      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: 'image-bar-cover d-block', alt: "image cover for bar" %>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <%= image_tag "https://images.unsplash.com/photo-1525268323446-0505b6fe7778?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80" %>
+                <% end %>
+            </div>
+            <div class="booking-content-text">
+              <div>
+                <h3><%= bar.name %></h3>
+                <p>Address: <%= bar.address %></p>
+                <p>Price: £<%= bar.price %> per day</p>
+              </div>
+            </div>
+          </div>
+
+        <div class="links">
+          <%=link_to "Update", edit_bar_path(bar), class: "link_text" %> &emsp;
+          <%=link_to "Details", bar_path(bar), class: "link_text"%> &emsp;
+          <%=link_to bar_path(bar), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "link_text" do%>
+            <i class="fa-regular fa-trash-can"></i>
+          <% end %>
+        </div>
+
+      </div>
+    <%end%>
+  </div>
+</div>

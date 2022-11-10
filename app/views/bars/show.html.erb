@@ -48,14 +48,14 @@
 
       <div class="delete-button">
         <% if @bar.user = current_user %>
-          <%= link_to "Delete", bar_path(@bar), class: 'btn btn-danger', data: {"turbo_method": :delete, turbo_confirm: "Are you sure?"} %>
+          <%= link_to "Delete", bar_path(@bar), class: 'btn btn-danger', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
         <% end %>
       </div>
 
 
     <div>
       <%= link_to "Home", root_path %> |
-      <%= link_to "Back to List", bars_path %>
+      <%= link_to "Back to List", bars_path(@bar) %>
     </div>
 
     <div id='map' style="width: 100%; height: 300px;"
