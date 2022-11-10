@@ -16,19 +16,21 @@
           <% else %>
             <%= image_tag "https://images.unsplash.com/photo-1525268323446-0505b6fe7778?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80", class: "d-block w-100" %>
           <% end %>
-        </div>
-        <div class="bar-card-content">
-          <div>
-            <h3><%=bar.name%></h3>
-            <p><%=bar.address%></p>
-          </div>
-          <div>
-           <p><span class="bold">£<%=bar.price%></span>/day</p>
-          </div>
-        </div>
       <% end %>
+          <div class="bar-card-content">
+            <div>
+              <h3><%=bar.name%></h3>
+              <p><%=bar.address%></p>
+            </div>
+            <div>
+              <p><span class="bold">£<%=bar.price%></span>/day</p>
+            </div>
+          </div>
+        </div>
     <%end%>
   </div>
+
+
 
   <div id='map' style="width: 100%; height: 300px;"
     data-controller="map"
