@@ -6,11 +6,13 @@
 
   <div class="bar-content">
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+      <% if @bar.photos.many? %>
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
       </div>
+      <% end %>
       <div class="carousel-inner", style="height: 400px;">
         <% @bar.photos.first(3).each_with_index do |photo, index| %>
           <% if index == 0 %>
@@ -24,14 +26,16 @@
           <% end %>
         <% end %>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+      <% if @bar.photos.many? %>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      <% end %>
     </div>
 
     <div class="description">
@@ -44,6 +48,14 @@
       <%= link_to "Book Venue", new_bar_booking_path(@bar), class: 'btn btn-success' %>
     </div>
   </div>
+
+  <% if @bar.photos.many? %>
+  <div class="small-photos">
+    <% @bar.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, class: 'd-block w-100 h-100', alt: 'image bar' %>
+    <% end %>
+    </div>
+  <% end %>
 
     <div class="delete-button">
       <% if @bar.user = current_user %>
