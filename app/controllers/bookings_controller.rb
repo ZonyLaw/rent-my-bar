@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
       days = (@booking.end_date - @booking.start_date).to_i + 1
       cost = @booking.bar.price * days
 
-      flash[:notice] = "Thank you for your booking. The cost for #{days} #{days === 1 ? "day" : "days"} is £#{cost}."
+      flash[:notice] = "Thank you for booking with us. A confirmation email will be sent to you shortly."
       redirect_to bar_path(@bar)
     else
       render :new, status: :unprocessable_entity

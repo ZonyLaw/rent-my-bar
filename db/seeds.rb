@@ -7,42 +7,107 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require 'faker'
+require 'open-uri'
+require 'date'
 
- puts "Clean user database"
-
- User.destroy_all
-
- puts "Add a list of users"
- 5.times do
-   user = User.new(
-     name: Faker::Name.name,
-     email: Faker::Internet.email,
-     password: "123456")
-   user.save!
-
-  puts "User #{user.name} created"
-end
-puts "Populated user database"
-
-puts "Clean bar database"
+puts "Clearing Database"
+Booking.destroy_all
 Bar.destroy_all
+User.destroy_all
 
-puts "Add a list of bars"
-20.times do
-  bar = Bar.new(
-    name: Faker::Restaurant.name,
-    address: Faker::Address.street_address,
-    description: "Beer selection: #{rand(5..30)}, Amenities: #{rand(20..50)} tables, #{rand(0..3)} pool tables, #{rand(0..3)} darts,
-      Food: #{['French', 'Italian', 'English', 'Turkish', 'American'].sample}.
-      Lorem ipsum dolor sit amet. Aut voluptas perspiciatis id
-      voluptatibus error non placeat voluptatem ut reprehenderit deserunt
-      et magnam accusantium in sunt eligendi. Eos rerum earum hic veritatis
-      illum aut accusantium voluptatibus aut quia quisquam eos quasi esse.
-      Non unde quam 33 quaerat quia ut voluptate provident id laudantium autem!",
-    price: [100, 150,250,300,350,400].sample,
-    user: User.all.sample)
-  bar.save!
+puts "Creating Bar Owner"
+user = User.create!(
+  name: "Jess",
+  email: "jess@test.com",
+  password: "123456"
+)
+puts "Bar owner created"
 
-  puts "Bar #{bar.name} created"
+puts "Creating bars in paris"
+
+bar = Bar.new(
+  name: "Experimental Cocktail Club",
+  address: "37 Rue Saint-Sauveur",
+  description: "Creative cocktails & DJ tunes in a rustic, cozy bar with exposed bricks & wood beams",
+  price: rand(100..450),
+  user: user)
+# file = URI.open('TODO')
+# bar.photos.attach(io: file, filename: 'experimental.png', content_type: 'image/jpg')
+bar.save!
+puts "Bar #{bar.name} created"
+
+bar = Bar.new(
+  name: "Little Red Door",
+  address: "60 Rue Charlot",
+  description: "An array of creative, inventively presented cocktails at an intimate, acclaimed bar",
+  price: rand(100..450),
+  user: user)
+# file = URI.open('TODO')
+# bar.photos.attach(io: file, filename: 'littlereddoor.png', content_type: 'image/jpg')
+bar.save!
+puts "Bar #{bar.name} created"
+
+bar = Bar.new(
+  name: "Harry's New York Bar",
+  address: "60 Rue Charlot",
+  description: "Classic, bespoke & Cuban-style cocktails in a chic, wood-lined space with a piano bar in the cellar",
+  price: rand(100..450),
+  user: user)
+# file = URI.open('TODO')
+# bar.photos.attach(io: file, filename: 'harrys.png', content_type: 'image/jpg')
+bar.save!
+puts "Bar #{bar.name} created"
+
+bar = Bar.new(
+  name: "L'Ours Bar",
+  address: "8 Rue de Paradis",
+  description: "Buzzy, low-lit dive bar with a Polynesian vibe, pouring inventive tropical cocktails",
+  price: rand(100..450),
+  user: user)
+# file = URI.open('TODO')
+# bar.photos.attach(io: file, filename: 'lours.png', content_type: 'image/jpg')
+bar.save!
+puts "Bar #{bar.name} created"
+
+bar = Bar.new(
+  name: "Bisou.",
+  address: "15 Bd du Temple",
+  description: "Snug, eclectic, pink-hued bar offering made-to-order seasonal cocktails & alfresco seating",
+  price: rand(100..450),
+  user: user)
+# file = URI.open('TODO')
+# bar.photos.attach(io: file, filename: 'bisou.png', content_type: 'image/jpg')
+bar.save!
+puts "Bar #{bar.name} created"
+
+bar = Bar.new(
+  name: "Lulu White Drinking Club",
+  address: "12 Rue Frochot",
+  description: "Cool, compact bar for artisanal cocktails, absinthe drinks & frequent live jazz music",
+  price: rand(100..450),
+  user: user)
+# file = URI.open('TODO')
+# bar.photos.attach(io: file, filename: 'lulu.png', content_type: 'image/jpg')
+bar.save!
+puts "Bar #{bar.name} created"
+
+puts "All bars created"
+puts "Creating Booking User"
+booker = User.create!(
+  name: "Sunny",
+  email: "sunny@test.com",
+  password: "123456"
+)
+puts "Booker created"
+
+puts "Creating 1 bookings per bar"
+Bar.all.each do |bar|
+  date = Date.today+rand(30)
+  Booking.create!(
+    start_date: date,
+    end_date: date + 1,
+    user: booker,
+    bar: bar
+  )
 end
-puts "Populated bar database"
+puts "Bookings created"

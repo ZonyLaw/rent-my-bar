@@ -1,21 +1,17 @@
-<h1>Booking summary</h1>
+<h1 class="title-booking">Booking summary</h1>
 
-<div class="container">
+<div class="container booking-section">
 
   <div class="list-index-card-wrapper">
     <%@bookings.each do |booking|%>
-      <div class="booking-card booking-content-row">
+      <div class="booking-card booking-content-row bk-booking">
         <% days = (booking.end_date - booking.start_date).to_i + 1%>
         <% cost = booking.bar.price * days %>
 
-        <div class="booking-content-text">
-          <div>
+        <div class="booking-content">
+          <div class="booking-img">
             <% if booking.bar.photos.attached? %>
-              <% booking.bar.photos.each_with_index do |photo, index| %>
-                <div <%= index == 0 ? "active" : "" %> >
-                  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: 'image-bar-cover d-block', alt: "image cover for bar" %>
-                </div>
-              <% end %>
+                  <%= cl_image_tag booking.bar.photos.first.key, class: 'd-block', alt: "image cover for bar" %>
             <% else %>
               <%= image_tag "https://images.unsplash.com/photo-1525268323446-0505b6fe7778?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80" %>
             <% end %>
@@ -47,20 +43,20 @@
 </div>
 
 
-<h1>Bars Listing</h1>
+<h1 class="title-bar">Bars Listing</h1>
 <div class="container">
   <div class="list-index-card-wrapper">
     <%@bars.each do |bar|%>
-      <div class="booking-card booking-content-row">
+      <div class="booking-card booking-content-row bk-bar">
 
-          <div class="booking-content-text">
-            <div>
+          <div class="booking-content">
+            <div class="booking-img">
                 <% if bar.photos.attached? %>
-                  <% bar.photos.each_with_index do |photo, index| %>
-                    <div <%= index == 0 ? "active" : "" %> >
-                      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: 'image-bar-cover d-block', alt: "image cover for bar" %>
-                    </div>
-                  <% end %>
+
+
+                      <%= cl_image_tag bar.photos.first.key, class: 'd-block', alt: "image cover for bar" %>
+
+
                 <% else %>
                   <%= image_tag "https://images.unsplash.com/photo-1525268323446-0505b6fe7778?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80" %>
                 <% end %>
