@@ -1,9 +1,5 @@
-<h1>Index page</h1>
-<div class="banner-index" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://res.cloudinary.com/dh6gdchfj/image/upload/v1606940861/dishoom-cg_ggahzz.jpg')"> %>
-  <div class="container">
-  <h1>Here is where a nice banner comes</h1>
-  <p>and you can scroll down to see all our listed bars</p>
-
+<div class="container">
+  <h1>Find the bar of your dream</h1>
   <%= simple_form_for :search, url: bars_path, method: :get do |f| %>
       <div class="search-form-control form-group">
         <input class="form-control string required" placeholder="Search a bar by name or address" type="text" name="search[query]" id="search_query" />
@@ -12,50 +8,21 @@
         </button>
       </div>
     <% end %>
-</div>
-
-<div class="container">
-  <%# Things concerning the card %>
-  <div class="bar-cards-wrapper">
-    <% @bars.each do |bar|%>
-      <%= link_to bar_path(bar) do %>
-        <div class="bar-index-card">
-
-          <div class="card-header">
-            <div class="header-img">
-                <% if bar.photos.attached? %>
-                  <% bar.photos.each_with_index do |photo, index| %>
-                    <div <%= index == 0 ? "active" : "" %> >
-                      <%= cl_image_tag photo.key, height: 300, width: 200, crop: :fill, class: 'image-bar-cover d-block', alt: "image cover for bar" %>
-                    </div>
-                  <% end %>
-                <% else %>
-                  <%= image_tag "https://images.unsplash.com/photo-1525268323446-0505b6fe7778?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80", class: "d-block w-100" %>
-                <% end %>
-            </div>
-          </div>
-
-          <div class="bar-card-content">
-            <div class="card-title">
-              <h3><%=bar.name%></h3>
-              <p class="address"><%=bar.address%></p>
-              <p class="bar-description">Lorem ipsum dolor sit amet consectetur... </p>
-            </div>
-            <p class="price"><span>£<%=bar.price%></span>/day</p>
-          </div>
-        </div>
-        <%end%>
-    <%end%>
+  <div class="result-text">
+    <p class="text-center">We have found <strong><%= @bars.count %> bars</strong> matching your search</p>
   </div>
 
+  <%# Things concerning the card %>
+  <div class="bar-cards-wrapper">
+    <%= render "shared/card" %>
+  </div>
 
-<%# Things concerning the map %>
+  <%# Things concerning the map %>
 
   <div id='map' style="width: 100%; height: 300px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-</div>
 
-<%# Things concerning the bottom (ex facebook instagram pinterest) %>
+</div>
