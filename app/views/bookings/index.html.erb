@@ -4,7 +4,7 @@
 
   <div class="list-index-card-wrapper">
     <%@bookings.each do |booking|%>
-      <div class="booking-card booking-content-row">
+      <div class="booking-card booking-content-row bk-booking">
         <% days = (booking.end_date - booking.start_date).to_i + 1%>
         <% cost = booking.bar.price * days %>
 
@@ -47,7 +47,7 @@
 <div class="container">
   <div class="list-index-card-wrapper">
     <%@bars.each do |bar|%>
-      <div class="booking-card booking-content-row">
+      <div class="booking-card booking-content-row bk-bar">
 
           <div class="booking-content">
             <div class="booking-img">
