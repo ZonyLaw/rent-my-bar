@@ -1,8 +1,8 @@
-<h1 class="title-booking">Booking summary</h1>
 
 <div class="container booking-section">
+  <h1 class="title-booking">Booking summary</h1>
 
-  <div class="list-index-card-wrapper">
+  <div class="card-wrapper">
     <%@bookings.each do |booking|%>
       <div class="booking-card booking-content-row bk-booking">
         <% days = (booking.end_date - booking.start_date).to_i + 1%>
@@ -43,9 +43,9 @@
 </div>
 
 
-<h1 class="title-bar">Bars Listing</h1>
 <div class="container">
-  <div class="list-index-card-wrapper">
+  <h1 class="title-bar">Bars Listing</h1>
+  <div class="card-wrapper">
     <%@bars.each do |bar|%>
       <div class="booking-card booking-content-row bk-bar">
 
