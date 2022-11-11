@@ -24,27 +24,8 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="list-index-card-wrapper">
+  <div class="bar-cards-wrapper">
 
-      <%@bars.each do |bar|%>
-        <%= link_to bar_path(bar) do %>
-          <div class="bar-index-card">
-            <%= image_tag 'bar2', class: 'image-list-cover',  alt: "Bar 1 layout" %>
+    <%= render "shared/card" %>
 
-            <div class="bar-card-content">
-              <div>
-                <h3><%=bar.name%></h3>
-                <p><%=bar.address%></p>
-              </div>
-
-              <div>
-                <p><span class="bold">£<%=bar.price%></span>/day</p>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      <%end%>
   </div>
-
-</div>
