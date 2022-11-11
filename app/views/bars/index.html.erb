@@ -8,8 +8,8 @@
         </button>
       </div>
     <% end %>
-  <div>
-    <p class="text-center">We have found <strong><%= Bar.count %> bars</strong> corresponding to your search</p>
+  <div class="result-text">
+    <p class="text-center">We have found <strong><%= @bars.count %> bars</strong> matching your search</p>
   </div>
 
   <%# Things concerning the card %>
