@@ -31,8 +31,8 @@ bar = Bar.new(
   description: "Creative cocktails & DJ tunes in a rustic, cozy bar with exposed bricks & wood beams",
   price: rand(100..450),
   user: user)
-# file = URI.open('TODO')
-# bar.photos.attach(io: file, filename: 'experimental.png', content_type: 'image/jpg')
+  file = URI.open('https://res.cloudinary.com/dfkgih0bp/image/upload/v1668158134/development/Experimental_Cocktail_Club_gzeegk.png')
+  bar.photos.attach(io: file, filename: 'experimental.jpg', content_type: 'image/jpg')
 bar.save!
 puts "Bar #{bar.name} created"
 
@@ -42,8 +42,8 @@ bar = Bar.new(
   description: "An array of creative, inventively presented cocktails at an intimate, acclaimed bar",
   price: rand(100..450),
   user: user)
-# file = URI.open('TODO')
-# bar.photos.attach(io: file, filename: 'littlereddoor.png', content_type: 'image/jpg')
+  file = URI.open('https://res.cloudinary.com/dfkgih0bp/image/upload/v1668158134/development/littlereddoor_i7gler.jpg')
+  bar.photos.attach(io: file, filename: 'littlereddoor.png', content_type: 'image/jpg')
 bar.save!
 puts "Bar #{bar.name} created"
 
@@ -53,8 +53,8 @@ bar = Bar.new(
   description: "Classic, bespoke & Cuban-style cocktails in a chic, wood-lined space with a piano bar in the cellar",
   price: rand(100..450),
   user: user)
-# file = URI.open('TODO')
-# bar.photos.attach(io: file, filename: 'harrys.png', content_type: 'image/jpg')
+  file = URI.open('https://res.cloudinary.com/dfkgih0bp/image/upload/v1668158877/development/newyork_lgxcta.jpg')
+  bar.photos.attach(io: file, filename: 'harrys.png', content_type: 'image/jpg')
 bar.save!
 puts "Bar #{bar.name} created"
 
@@ -64,8 +64,8 @@ bar = Bar.new(
   description: "Buzzy, low-lit dive bar with a Polynesian vibe, pouring inventive tropical cocktails",
   price: rand(100..450),
   user: user)
-# file = URI.open('TODO')
-# bar.photos.attach(io: file, filename: 'lours.png', content_type: 'image/jpg')
+  file = URI.open('https://res.cloudinary.com/dfkgih0bp/image/upload/v1668158134/development/lours_zl1q63.jpg')
+  bar.photos.attach(io: file, filename: 'lours.png', content_type: 'image/jpg')
 bar.save!
 puts "Bar #{bar.name} created"
 
@@ -75,8 +75,8 @@ bar = Bar.new(
   description: "Snug, eclectic, pink-hued bar offering made-to-order seasonal cocktails & alfresco seating",
   price: rand(100..450),
   user: user)
-# file = URI.open('TODO')
-# bar.photos.attach(io: file, filename: 'bisou.png', content_type: 'image/jpg')
+  file = URI.open('https://res.cloudinary.com/dfkgih0bp/image/upload/v1668158134/development/bisou_ldysud.jpg')
+  bar.photos.attach(io: file, filename: 'bisou.png', content_type: 'image/jpg')
 bar.save!
 puts "Bar #{bar.name} created"
 
@@ -86,8 +86,8 @@ bar = Bar.new(
   description: "Cool, compact bar for artisanal cocktails, absinthe drinks & frequent live jazz music",
   price: rand(100..450),
   user: user)
-# file = URI.open('TODO')
-# bar.photos.attach(io: file, filename: 'lulu.png', content_type: 'image/jpg')
+  file = URI.open('https://res.cloudinary.com/dfkgih0bp/image/upload/v1668158134/development/lulu_l5u6l6.jpg')
+  bar.photos.attach(io: file, filename: 'lulu.png', content_type: 'image/jpg')
 bar.save!
 puts "Bar #{bar.name} created"
 
