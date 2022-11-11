@@ -14,7 +14,6 @@ class BarsController < ApplicationController
         # info_window: render_to_string(partial: "info_window", locals: {bar: bar})
       }
     end
-
   end
 
   def show
@@ -48,7 +47,6 @@ class BarsController < ApplicationController
     @bar.destroy
     redirect_to root_path, status: :see_other
   end
-
 
   private
 
