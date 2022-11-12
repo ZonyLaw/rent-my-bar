@@ -54,3 +54,20 @@
   align-items: center;
   justify-content: space-around;
 }
+
+.bar-cards-wrapper {
+  margin: 50px 100px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+
+}
+
+.flex-row-bar-card {
+  display: grid;
+  gap: 80px;
+  grid-template-columns: auto auto auto auto;
+  justify-content: center;
+}
