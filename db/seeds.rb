@@ -27,7 +27,7 @@ puts "Creating bars in paris"
 
 bar = Bar.new(
   name: "Experimental Cocktail Club",
-  address: "37 Rue Saint-Sauveur",
+  address: "37 Rue Saint-Sauveur Paris",
   description: "Creative cocktails & DJ tunes in a rustic, cozy bar with exposed bricks & wood beams",
   price: rand(100..450),
   user: user)
@@ -38,7 +38,7 @@ puts "Bar #{bar.name} created"
 
 bar = Bar.new(
   name: "Little Red Door",
-  address: "60 Rue Charlot",
+  address: "60 Rue Charlot Paris",
   description: "An array of creative, inventively presented cocktails at an intimate, acclaimed bar",
   price: rand(100..450),
   user: user)
@@ -49,7 +49,7 @@ puts "Bar #{bar.name} created"
 
 bar = Bar.new(
   name: "Harry's New York Bar",
-  address: "60 Rue Charlot",
+  address: "60 Rue Charlot Paris",
   description: "Classic, bespoke & Cuban-style cocktails in a chic, wood-lined space with a piano bar in the cellar",
   price: rand(100..450),
   user: user)
@@ -60,7 +60,7 @@ puts "Bar #{bar.name} created"
 
 bar = Bar.new(
   name: "L'Ours Bar",
-  address: "8 Rue de Paradis",
+  address: "8 Rue de Paradis Paris",
   description: "Buzzy, low-lit dive bar with a Polynesian vibe, pouring inventive tropical cocktails",
   price: rand(100..450),
   user: user)
@@ -71,7 +71,7 @@ puts "Bar #{bar.name} created"
 
 bar = Bar.new(
   name: "Bisou.",
-  address: "15 Bd du Temple",
+  address: "15 Bd du Temple Paris",
   description: "Snug, eclectic, pink-hued bar offering made-to-order seasonal cocktails & alfresco seating",
   price: rand(100..450),
   user: user)
@@ -82,7 +82,7 @@ puts "Bar #{bar.name} created"
 
 bar = Bar.new(
   name: "Lulu White Drinking Club",
-  address: "12 Rue Frochot",
+  address: "12 Rue Frochot Paris",
   description: "Cool, compact bar for artisanal cocktails, absinthe drinks & frequent live jazz music",
   price: rand(100..450),
   user: user)
