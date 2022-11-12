@@ -57,11 +57,11 @@
     </div>
   <% end %>
 
-    <div class="delete-button">
+ <%#    <div class="delete-button">
       <% if @bar.user = current_user %>
-        <%= link_to "Delete", bar_path(@bar), class: 'btn btn-danger', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-      <% end %>
-    </div>
+        <%#= link_to "Delete", bar_path(@bar), class: 'btn btn-danger', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      <%# end %>
+    <%# </div> %>
 
 
   <div>
