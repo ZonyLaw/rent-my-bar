@@ -2,7 +2,7 @@
   data-action="scroll@window->navbar#updateNavbar">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= cl_image_tag "bar_logo_gjurxo_afa519", class: "ms-3", alt: "logo home" %>
+      <%= image_tag "https://res.cloudinary.com/dfkgih0bp/image/upload/v1668176540/development/bar_logo_gjurxo_afa519.png", class: "ms-3", alt: "logo home" %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,7 +23,7 @@
           </li>
         <% end %>
         <li class="nav-item dropdown">
-          <%= cl_image_tag "noun-user-107251_geic5w_7f29f1", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= image_tag "https://res.cloudinary.com/dfkgih0bp/image/upload/v1668177137/development/noun-user-107251_geic5w_7f29f1.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <%= link_to "Log In", new_user_session_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
