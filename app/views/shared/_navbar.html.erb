@@ -12,14 +12,14 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <li class="nav-item active">
-          <%= link_to "List a Bar", new_bar_path, class: "nav-link btn-primary me-4" %>
+          <%= link_to "List a Bar", new_bar_path, class: "nav-btn btn-primary me-4" %>
         </li>
         <li class="nav-item">
-          <%= link_to "My Bars", bookings_path, class: "nav-link btn-primary me-4" %>
+          <%= link_to "My Bars", bookings_path, class: "nav-btn btn-primary me-4" %>
         </li>
         <% if !user_signed_in? %>
           <li class="nav-item">
-            <%= link_to "Sign Up", new_user_registration_path, class: "nav-link btn-primary me-4" %>
+            <%= link_to "Sign Up", new_user_registration_path, class: " btn-primary font-weight-bold me-4" %>
           </li>
         <% end %>
         <li class="nav-item dropdown">
